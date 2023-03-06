@@ -31,7 +31,9 @@
         @click="openShop(listItem.id)"
         v-show="listItem.isDeleted === false"
       >
-        <p>{{ listItem.title }}</p>
+        <div class="item__title">
+          <p>{{ listItem.title }}</p>
+        </div>
         <div class="product__count">
           <p>{{ listItem.count }}</p>
           <p>Продукта</p>
@@ -250,6 +252,29 @@ export default {
   margin: 10px 0;
   align-items: center;
 }
+.item__title{
+  width: 142px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+}
+.item__title::-webkit-scrollbar{
+  width: 5px;
+  scrollbar-width: thin;
+}
+.item__title::-webkit-scrollbar-track{
+  background: #fff;
+}
+.item__title::-webkit-scrollbar-thumb{
+  background: rgb(212, 200, 212);
+  border-radius: 2.5rem;
+}
+.item__title p{
+  margin: 10px 0;
+  word-break: break-all;
+}
 .types {
   position: absolute;
   top: 0;
@@ -292,9 +317,14 @@ export default {
 }
 .shop__buttons {
   display: flex;
+  position: sticky;
+  top: 10px;
 }
 .button__custom {
   width: 60px;
+  position: sticky;
+  border-radius: 2.5rem;
+  top: 10px;
 }
 .select__sort {
   margin-left: 20px;

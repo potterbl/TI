@@ -8,9 +8,12 @@
           class="cart__list"
           v-show="listItem.isDeleted === false"
         >
-          <p v-if="showCart === false">
-            {{ listItem.title }}
-          </p>
+          <div class="cart__title" 
+          v-if="showCart === false">
+            <p>
+              {{ listItem.title }}
+            </p>
+          </div>
           <button @click="openCart(listItem.id)" class="btn-open">!!!</button>
           <div class="product__count">
             <p>{{ listItem.count }}</p>
@@ -189,6 +192,29 @@ export default {
   align-items: center;
   position: relative;
   transition: all 0.3s;
+}
+.cart__title{
+  width: 142px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: scroll;
+}
+.cart__title::-webkit-scrollbar{
+  width: 5px;
+  scrollbar-width: thin;
+}
+.cart__title::-webkit-scrollbar-track{
+  background: #fff;
+}
+.cart__title::-webkit-scrollbar-thumb{
+  background: rgb(212, 200, 212);
+  border-radius: 2.5rem;
+}
+.cart__title p{
+  margin: 10px 0;
+  word-break: break-all;
 }
 .cart__items {
   border: 1px solid black;
